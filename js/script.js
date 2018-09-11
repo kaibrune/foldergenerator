@@ -1,8 +1,9 @@
 $("#option1sub").hide();
 $("#option3sub").hide();
+$("#option21sub").hide();
+$("#option22sub").hide();
 $("#code").hide();
 $("#video").hide();
-$('select > option:first').hide();
 
 $('select').on('change', function() {
   if(this.value == "video"){$('#video').slideDown();$("#code").hide();$("#intro").slideUp();}
@@ -10,7 +11,7 @@ $('select').on('change', function() {
   else{$('#intro').slideDown();$('#code').slideUp();$('#video').slideUp();};
 });
 
-
+// VIDEO SET
 
 var zip = new JSZip();
 
@@ -249,9 +250,134 @@ $( "#option1" ).change(function() {
    number = $("#number").prop('checked');
  });
 
+ jQuery("#download").on("click", function () {
+  zip.generateAsync({type:"blob"}).then(function (blob) { 
+      saveAs(blob, titel);                         
+  }, function (err) {
+      jQuery("#download").text(err);
+  });
+});
 
 
-jQuery("#download").on("click", function () {
+var option21 = $("#option21").prop('checked');
+var option21sub1 = $("#option21sub1").prop('checked');
+var option21sub2 = $("#option21sub2").prop('checked');
+var option22 = $("#option2").prop('checked');
+var option22sub1 = $("#option22sub1").prop('checked');
+var option22sub2 = $("#option22sub2").prop('checked');
+var option23 = $("#option23").prop('checked');
+var option24 = $("#option24").prop('checked');
+var option25 = $("#option25").prop('checked');
+var option26 = $("#option26").prop('checked');
+
+$( "#option21" ).change(function() {
+  option21 = $("#option21").prop('checked');
+
+  if(option21 == true){
+    console.log('option21:true');
+    zip.folder("css");
+    $('#option21sub').slideDown();
+  }
+  else {
+    console.log('option21:false');
+    zip.remove("css");
+    $('#option21sub').slideUp();
+  }
+});
+  $( "#option21sub1" ).change(function() {
+    option21sub1 = $("#option21sub1").prop('checked');
+
+    if(option21sub1 == true){
+      console.log('option21sub1:true');
+      zip.folder("css").file("style.css","");
+    }
+    else {
+      console.log('option21sub1:false');
+      zip.remove("css").file("style.css","");
+    }
+  });
+
+  $( "#option22" ).change(function() {
+    option22 = $("#option22").prop('checked');
+  
+    if(option22 == true){
+      console.log('option22:true');
+      zip.folder("js");
+      $('#option22sub').slideDown();
+    }
+    else {
+      console.log('option22:false');
+      zip.remove("js");
+      $('#option22sub').slideUp();
+    }
+  });
+
+  $( "#option22sub1" ).change(function() {
+    option22sub1 = $("#option22sub1").prop('checked');
+
+    if(option22sub1 == true){
+      console.log('option22sub1:true');
+      zip.folder("js").file("script.js","");
+    }
+    else {
+      console.log('option22sub1:false');
+      zip.remove("js").file("script.css","");
+    }
+  });
+
+  $( "#option23" ).change(function() {
+    option23 = $("#option23").prop('checked');
+  
+    if(option23 == true){
+      console.log('option23:true');
+      zip.folder("font");
+    }
+    else {
+      console.log('option23:false');
+      zip.remove("font");
+    }
+  });
+  
+  $( "#option24" ).change(function() {
+    option24 = $("#option24").prop('checked');
+  
+    if(option24 == true){
+      console.log('option24:true');
+      zip.folder("img");
+    }
+    else {
+      console.log('option24:false');
+      zip.remove("img");
+    }
+  });
+
+  $( "#option25" ).change(function() {
+    option25 = $("#option25").prop('checked');
+  
+    if(option25 == true){
+      console.log('option25:true');
+      zip.file(".htaccess","");
+    }
+    else {
+      console.log('option25:false');
+      zip.remove(".htaccess");
+    }
+  });
+
+  $( "#option26" ).change(function() {
+    option26 = $("#option26").prop('checked');
+  
+    if(option26 == true){
+      console.log('option26:true');
+      zip.file("index.html","");
+    }
+    else {
+      console.log('option26:false');
+      zip.remove("index.html");
+    }
+  });
+
+jQuery("#download2").on("click", function () {
     zip.generateAsync({type:"blob"}).then(function (blob) { 
         saveAs(blob, titel);                         
     }, function (err) {
