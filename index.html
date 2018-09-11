@@ -14,8 +14,18 @@
 <body>
     <div class="center-on-page">
   
-        <h1>Folder Template Generator</h1>
-        
+        <h1><a href="index.html">Folder Template Generator</a></h1>
+
+        <p id="intro">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+
+        <select>
+          <option value="0">Choose your type</option>
+          <option value="video">Video Template</option>
+          <option value="code">Code Template</option>
+          <option value="back">Return to menu</option>
+      </select>
+     
+      <div id="video">  
         <h2>Choose your folders...</h2>
         <input type="checkbox" id="option1" />
         <label for="option1">edit</label></br>
@@ -66,7 +76,47 @@
         </br></br>
 
         <button id="download" class="">Download</button>
-
+      </div> 
+      <div id="code">  
+          <h2>Choose your folders...</h2>
+          <input type="checkbox" id="option1" />
+          <label for="option1">css</label></br>
+            <div class="in" id="option1sub">
+              <input type="checkbox" id="option1sub1" />
+              <label for="option1sub1">style.css</label></br>
+              <input type="checkbox" id="option1sub1" />
+              <label for="option1sub1">bootstrap.min.css</label></br>
+            </div>
+        
+          <input type="checkbox" id="option2" />
+          <label for="option2">js</label></br>
+          <div class="in" id="option1sub">
+              <input type="checkbox" id="option1sub1" />
+              <label for="option1sub1">script.js</label></br>
+              <input type="checkbox" id="option1sub1" />
+              <label for="option1sub1">jquery.min.js</label></br>
+            </div>
+            <input type="checkbox" id="option2" />
+            <label for="option2">font</label></br>
+            <input type="checkbox" id="option2" />
+            <label for="option2">img</label></br>
+          <input type="checkbox" id="option3" />
+        <label for="option3">.htaccess</label></br>
+        <input type="checkbox" id="option3" />
+        <label for="option3">index.html</label></br>
+    
+  
+          <h2>Choose a name...</h2>
+          <input type="text" id="titel" placeholder="videotemplate_v1">
+  
+          <h2>Just some finetuning...</h2>
+            <input disabled type="checkbox" id="number" />
+        <label for="number">add current number</label>
+  
+          </br></br>
+  
+          <button id="download" class="">Download</button>
+        </div> 
       </div> 
       
     

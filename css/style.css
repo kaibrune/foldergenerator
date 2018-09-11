@@ -10,6 +10,11 @@
   
   textarea, select, input, button { outline: none; }
   
+  h1 a{
+    text-decoration: none;
+    color: #2c3e50;
+  }
+
   h2 {
     font-weight: normal;
   }
@@ -18,6 +23,7 @@
     background: #ecf0f1;
     color: #2c3e50;
     font-family: 'Open Sans', sans-serif;
+    margin: 50px;
   }
   .center-on-page {
     max-width: 500px;
@@ -101,6 +107,7 @@
       box-sizing: border-box;
       border: 2px solid #2c3e50;
       border-radius: 4px;
+      background:transparent;
       -webkit-transition: .25s all ease;
     -o-transition: .25s all ease;
     transition: .25s all ease;
@@ -117,4 +124,40 @@
   }
   .in{
     padding-left: 15px;
+  }
+  select::-ms-expand {
+    display: none;
+  }
+  select:focus::-ms-value {
+    background-color: transparent;
+  }
+  select {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    border: none;
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    font-size:15px;
+    box-sizing: border-box;
+    border: 2px solid #2c3e50;
+    outline: none;
+    cursor: pointer;
+    background:transparent;
+    font-family: 'Open Sans', sans-serif;
+    color:#2c3e50;
+  }
+  select option {
+    color: #666;
+    border: 2px solid #2c3e50;
+  }
+  .select-wrapper:before {
+    font-family: fontello;
+    content: "\f107";
+    font-size: 20px;
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    color: #fff;
   }

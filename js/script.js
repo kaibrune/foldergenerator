@@ -1,5 +1,17 @@
 $("#option1sub").hide();
 $("#option3sub").hide();
+$("#code").hide();
+$("#video").hide();
+$('select > option:first').hide();
+
+$('select').on('change', function() {
+  if(this.value == "video"){$('#video').slideDown();$("#code").hide();$("#intro").slideUp();}
+  else if(this.value == "code"){$('#code').slideDown();$("#video").hide();$("#intro").slideUp();}
+  else{$('#intro').slideDown();$('#code').slideUp();$('#video').slideUp();};
+});
+
+
+
 var zip = new JSZip();
 
 var option1 = $("#option1").prop('checked');
