@@ -11,6 +11,8 @@ $('select').on('change', function() {
   else{$('#intro').slideDown();$('#code').slideUp();$('#video').slideUp();};
 });
 
+$('#title').click(function(){$('#intro').slideDown();$('#code').slideUp();$('#video').slideUp();});
+
 // VIDEO SET
 
 var zip = new JSZip();

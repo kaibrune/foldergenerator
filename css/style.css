@@ -163,3 +163,6 @@
     top: 10px;
     color: #fff;
   }
+  #title{
+    cursor: pointer;
+  }
