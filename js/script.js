@@ -2,6 +2,7 @@ $("#option1sub").hide();
 $("#option3sub").hide();
 $("#option21sub").hide();
 $("#option22sub").hide();
+$("#option25sub").hide();
 $("#code").hide();
 $("#video").hide();
 
@@ -11,11 +12,12 @@ $('select').on('change', function() {
   else{$('#intro').slideDown();$('#code').slideUp();$('#video').slideUp();};
 });
 
-$('#title').click(function(){$('#intro').slideDown();$('#code').slideUp();$('#video').slideUp();});
+$('#title').click(function(){$('#intro').slideDown();$('#code').slideUp();$('#video').slideUp();$('#menu').prop('selectedIndex',0); });
 
 // VIDEO SET
 
 var zip = new JSZip();
+var zip2 = new JSZip();
 
 var option1 = $("#option1").prop('checked');
 var option1sub1 = $("#option1sub1").prop('checked');
@@ -270,6 +272,7 @@ var option22sub2 = $("#option22sub2").prop('checked');
 var option23 = $("#option23").prop('checked');
 var option24 = $("#option24").prop('checked');
 var option25 = $("#option25").prop('checked');
+var option25sub1 = $("#option25sub1").prop('checked');
 var option26 = $("#option26").prop('checked');
 
 $( "#option21" ).change(function() {
@@ -277,12 +280,12 @@ $( "#option21" ).change(function() {
 
   if(option21 == true){
     console.log('option21:true');
-    zip.folder("css");
+    zip2.folder("css");
     $('#option21sub').slideDown();
   }
   else {
     console.log('option21:false');
-    zip.remove("css");
+    zip2.remove("css");
     $('#option21sub').slideUp();
   }
 });
@@ -291,11 +294,29 @@ $( "#option21" ).change(function() {
 
     if(option21sub1 == true){
       console.log('option21sub1:true');
-      zip.folder("css").file("style.css","");
+      zip2.folder("css").file("style.css","");
     }
     else {
       console.log('option21sub1:false');
-      zip.remove("css").file("style.css","");
+      zip2.remove("css").file("style.css","");
+    }
+  });
+
+  $( "#option21sub2" ).change(function() {
+    option21sub2 = $("#option21sub2").prop('checked');
+
+    if(option21sub2 == true){
+      console.log('option21sub2:true');
+      JSZipUtils.getBinaryContent("files/boostrap.min.css", function (err, data) {
+        if(err) {
+           throw err;
+        }
+        zip2.folder("css").file("boostrap.min.css", data, {binary:true});
+      });
+    }
+    else {
+      console.log('option21sub2:false');
+      zip2.remove("css").file("boostrap.min.css","");
     }
   });
 
@@ -304,12 +325,12 @@ $( "#option21" ).change(function() {
   
     if(option22 == true){
       console.log('option22:true');
-      zip.folder("js");
+      zip2.folder("js");
       $('#option22sub').slideDown();
     }
     else {
       console.log('option22:false');
-      zip.remove("js");
+      zip2.remove("js");
       $('#option22sub').slideUp();
     }
   });
@@ -319,11 +340,29 @@ $( "#option21" ).change(function() {
 
     if(option22sub1 == true){
       console.log('option22sub1:true');
-      zip.folder("js").file("script.js","");
+      zip2.folder("js").file("script.js","");
     }
     else {
       console.log('option22sub1:false');
-      zip.remove("js").file("script.css","");
+      zip2.remove("js").file("script.css","");
+    }
+  });
+
+  $( "#option22sub2" ).change(function() {
+    option22sub2 = $("#option22sub2").prop('checked');
+
+    if(option22sub2 == true){
+      console.log('option22sub2:true');
+      JSZipUtils.getBinaryContent("files/jquery.min.js", function (err, data) {
+        if(err) {
+           throw err;
+        }
+        zip2.folder("js").file("jquery.min.js", data, {binary:true});
+      });
+    }
+    else {
+      console.log('option22sub2:false');
+      zip2.remove("js").file("jquery.min.js","");
     }
   });
 
@@ -332,11 +371,11 @@ $( "#option21" ).change(function() {
   
     if(option23 == true){
       console.log('option23:true');
-      zip.folder("font");
+      zip2.folder("font");
     }
     else {
       console.log('option23:false');
-      zip.remove("font");
+      zip2.remove("font");
     }
   });
   
@@ -345,45 +384,95 @@ $( "#option21" ).change(function() {
   
     if(option24 == true){
       console.log('option24:true');
-      zip.folder("img");
+      zip2.folder("img");
     }
     else {
       console.log('option24:false');
-      zip.remove("img");
+      zip2.remove("img");
     }
   });
 
   $( "#option25" ).change(function() {
     option25 = $("#option25").prop('checked');
   
-    if(option25 == true){
+    if(option25 == true && option25sub1 == false){
       console.log('option25:true');
-      zip.file(".htaccess","");
+      zip2.file(".htaccess","");
+      $('#option25sub').slideDown();
+    }
+    else if(option25 == false && option25sub1 == false) {
+      console.log('option25:false');
+      zip2.remove(".htaccess");
+      $('#option25sub').slideUp();
+    }
+  });
+
+  $( "#option25sub1" ).change(function() {
+    option25sub1 = $("#option25sub1").prop('checked');
+
+    if(option25sub1 == true){
+      console.log('option25sub1:true');
+      JSZipUtils.getBinaryContent("files/htaccess.txt", function (err, data) {
+        if(err) {
+           throw err;
+        }
+        zip2.file(".htaccess", data, {binary:true});
+      });
     }
     else {
-      console.log('option25:false');
-      zip.remove(".htaccess");
+      console.log('option25sub1:false');
+      zip2.remove(".htaccess","");
     }
   });
 
   $( "#option26" ).change(function() {
     option26 = $("#option26").prop('checked');
   
-    if(option26 == true){
+    if(option26 == true && option22sub2 == false){
       console.log('option26:true');
-      zip.file("index.html","");
+      JSZipUtils.getBinaryContent("files/index.html", function (err, data) {
+        if(err) {
+           throw err;
+        }
+        zip2.file("index.html", data, {binary:true});
+      });
+      
     }
+    if(option26 == true && option22sub2 == true){
+      console.log('option26:true');
+      JSZipUtils.getBinaryContent("files/index_jquery.html", function (err, data) {
+        if(err) {
+           throw err;
+        }
+        zip2.file("index.html", data, {binary:true});
+      });};
+      if(option26 == true && option21sub2 == true && option22sub2 == true ){
+        console.log('option26:true');
+        JSZipUtils.getBinaryContent("files/index_jquery_boostrap.html", function (err, data) {
+          if(err) {
+             throw err;
+          }
+          zip2.file("index.html", data, {binary:true});
+        });}
+        if(option26 == true && option21sub2 == true && option22sub2 == false ){
+          console.log('option26:true');
+          JSZipUtils.getBinaryContent("files/index_boostrap.html", function (err, data) {
+            if(err) {
+               throw err;
+            }
+            zip2.file("index.html", data, {binary:true});
+          });}
     else {
       console.log('option26:false');
-      zip.remove("index.html");
+      zip2.remove("index.html");
     }
-  });
+  }); 
 
 jQuery("#download2").on("click", function () {
-    zip.generateAsync({type:"blob"}).then(function (blob) { 
+    zip2.generateAsync({type:"blob"}).then(function (blob) { 
         saveAs(blob, titel);                         
     }, function (err) {
-        jQuery("#download").text(err);
+        jQuery("#download2").text(err);
     });
 });
 

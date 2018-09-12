@@ -9,6 +9,7 @@
     <script src="js/jquery.min.js"></script>
     <script src="js/jszip.min.js"></script>
     <script src="js/FileSaver.min.js"></script>
+    <script src="js/jszip-utils.min.js"></script>
     <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700'>
 </head>
 <body>
@@ -18,10 +19,10 @@
 
         <p id="intro">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
 
-        <select>
+        <select id="menu">
           <option selected="true" disabled="disabled">Choose your type</option>  
-          <option value="video">Video Template</option>
-          <option value="code">Code Template</option>
+          <option value="video">Film Template</option>
+          <option value="code">Web Template</option>
       </select>
      
       <div id="video">  
@@ -83,6 +84,8 @@
             <div class="in" id="option21sub">
               <input type="checkbox" id="option21sub1" />
               <label for="option21sub1">style.css</label></br>
+              <input type="checkbox" id="option21sub2" />
+              <label for="option21sub2">boostrap.min.css (4.0.0)</label></br>
             </div>
         
           <input type="checkbox" id="option22" />
@@ -90,6 +93,8 @@
           <div class="in" id="option22sub">
               <input type="checkbox" id="option22sub1" />
               <label for="option22sub1">script.js</label></br>
+              <input type="checkbox" id="option22sub2" />
+              <label for="option22sub2">jquery.min.js (3.3.1)</label></br>
             </div>
             <input type="checkbox" id="option23" />
             <label for="option23">font</label></br>
@@ -97,12 +102,16 @@
             <label for="option24">img</label></br>
           <input type="checkbox" id="option25" />
         <label for="option25">.htaccess</label></br>
+        <div class="in" id="option25sub">
+            <input type="checkbox" id="option25sub1" />
+            <label for="option25sub1">force ssl/gzip</label></br>
+          </div>
         <input type="checkbox" id="option26" />
         <label for="option26">index.html</label></br>
     
   
           <h2>Choose a name...</h2>
-          <input type="text" id="titel" placeholder="videotemplate_v1">
+          <input type="text" id="titel" placeholder="websitetemplate_v1">
 
   
           <button id="download2" class="">Download</button>
