@@ -7,12 +7,12 @@ $("#code").hide();
 $("#video").hide();
 
 $('select').on('change', function() {
-  if(this.value == "video"){$('#video').slideDown();$("#code").hide();$("#intro").slideUp();}
-  else if(this.value == "code"){$('#code').slideDown();$("#video").hide();$("#intro").slideUp();}
-  else{$('#intro').slideDown();$('#code').slideUp();$('#video').slideUp();};
+  if(this.value == "video"){$('#video').slideDown();$("#code").hide();$("#intro").slideUp();$('#footer').slideUp();}
+  else if(this.value == "code"){$('#code').slideDown();$("#video").hide();$("#intro").slideUp();$('#footer').slideUp();}
+  else{$('#intro').slideDown();$('#code').slideUp();$('#video').slideUp();$('#footer').slideDown();};
 });
 
-$('#title').click(function(){$('#intro').slideDown();$('#code').slideUp();$('#video').slideUp();$('#menu').prop('selectedIndex',0); });
+$('#title').click(function(){$('#intro').slideDown();$('#code').slideUp();$('#video').slideUp();$('#menu').prop('selectedIndex',0);$('#footer').slideDown(); });
 
 // VIDEO SET
 
@@ -344,7 +344,7 @@ $( "#option21" ).change(function() {
     }
     else {
       console.log('option22sub1:false');
-      zip2.remove("js").file("script.css","");
+      zip2.remove("js").file("script.js","");
     }
   });
 

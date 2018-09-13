@@ -149,20 +149,44 @@
     background:transparent;
     font-family: 'Open Sans', sans-serif;
     color:#2c3e50;
+    background: url('../img/img1.png') 96% / 4% no-repeat transparent;
   }
+  select::-ms-expand { 
+    display: none; /* hide the default arrow in ie10 and ie11 */
+}
+  @media screen and (min-width:0\0) {
+    select {
+        background-image:none\9;
+        padding: 5px\9;
+    } 
+}
   select option {
     color: #666;
     border: 2px solid #2c3e50;
   }
-  .select-wrapper:before {
-    font-family: fontello;
-    content: "\f107";
-    font-size: 20px;
-    position: absolute;
-    right: 15px;
-    top: 10px;
-    color: #fff;
-  }
   #title{
     cursor: pointer;
+  }
+  #footer{
+    margin-top: 20px;
+    padding-top:10px;
+    border-top: solid rgba(0, 0, 0, 0.502) .5px;
+    font-size: 15px;
+    opacity: .5;
+    line-height: 1.8;
+  }
+  a{
+    text-decoration: none;
+    opacity: 0.7;
+    transition: all 0.3s ease-in-out;
+  }
+  a:hover{
+    color: black;
+    opacity: 1;
+  }
+  a:visited{
+    color: black;
+  }
+  p{
+    line-height: 1.7;
   }
