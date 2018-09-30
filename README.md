@@ -1,5 +1,5 @@
 # foldergenerator
-A tool that helps you creating a simple folder structure for your web or video projects. Simple, fast and ready to use.
+A tool that helps you create a simple folder structure for your web or video projects. Simple, fast and ready to use.
 
 The folder generator is all about optimizing processes. How many minutes do you waste creating the same folder structure for every new project? Regardless of whether it's a web or video project, there some folders, which are same on every project. Here comes the folder generator in handy to support your workflow. With simply generating your favorite folders, your set right away. Save time on your web or video projects! Start generating your folder right now.
 
