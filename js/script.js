@@ -6,13 +6,28 @@ $("#option25sub").hide();
 $("#code").hide();
 $("#video").hide();
 
+/* if(window.location.href.indexOf("film") > -1) {
+  $('#video').slideDown();$("#code").hide();$("#intro").slideUp();$('#footer').slideUp();
+}
+if(window.location.href.indexOf("web") > -1) {
+  $('#video').slideDown();$("#code").hide();$("#intro").slideUp();$('#footer').slideUp();
+} */
+
 $('select').on('change', function() {
-  if(this.value == "video"){$('#video').slideDown();$("#code").hide();$("#intro").slideUp();$('#footer').slideUp();}
+  if(this.value == "video"){$('#video').slideDown();$("#code").hide();$("#intro").slideUp();$('#footer').slideUp();
+  window.history.pushState('page2', 'Title', '/page2.php');}
   else if(this.value == "code"){$('#code').slideDown();$("#video").hide();$("#intro").slideUp();$('#footer').slideUp();}
   else{$('#intro').slideDown();$('#code').slideUp();$('#video').slideUp();$('#footer').slideDown();};
 });
 
 $('#title').click(function(){$('#intro').slideDown();$('#code').slideUp();$('#video').slideUp();$('#menu').prop('selectedIndex',0);$('#footer').slideDown(); });
+
+$("#titel").keyup(function (e) {
+  if (e.which == 13) {
+    $(".down").click();
+  }
+});
+
 
 // VIDEO SET
 
@@ -266,6 +281,7 @@ $( "#option1" ).change(function() {
 var option21 = $("#option21").prop('checked');
 var option21sub1 = $("#option21sub1").prop('checked');
 var option21sub2 = $("#option21sub2").prop('checked');
+var option21sub2 = $("#option21sub3").prop('checked');
 var option22 = $("#option2").prop('checked');
 var option22sub1 = $("#option22sub1").prop('checked');
 var option22sub2 = $("#option22sub2").prop('checked');
@@ -307,7 +323,7 @@ $( "#option21" ).change(function() {
 
     if(option21sub2 == true){
       console.log('option21sub2:true');
-      JSZipUtils.getBinaryContent("files/boostrap.min.css", function (err, data) {
+      JSZipUtils.getBinaryContent("https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js", function (err, data) {
         if(err) {
            throw err;
         }
@@ -353,7 +369,7 @@ $( "#option21" ).change(function() {
 
     if(option22sub2 == true){
       console.log('option22sub2:true');
-      JSZipUtils.getBinaryContent("files/jquery.min.js", function (err, data) {
+      JSZipUtils.getBinaryContent("https://code.jquery.com/jquery-3.3.1.min.js", function (err, data) {
         if(err) {
            throw err;
         }
@@ -371,11 +387,11 @@ $( "#option21" ).change(function() {
   
     if(option23 == true){
       console.log('option23:true');
-      zip2.folder("font");
+      zip2.folder("fonts");
     }
     else {
       console.log('option23:false');
-      zip2.remove("font");
+      zip2.remove("fonts");
     }
   });
   
@@ -475,4 +491,3 @@ jQuery("#download2").on("click", function () {
         jQuery("#download2").text(err);
     });
 });
-
