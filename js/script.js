@@ -15,12 +15,41 @@ if(window.location.href.indexOf("web") > -1) {
 
 $('select').on('change', function() {
   if(this.value == "video"){$('#video').slideDown();$("#code").hide();$("#intro").slideUp();$('#footer').slideUp();
-  window.history.pushState('page2', 'Title', '/page2.php');}
-  else if(this.value == "code"){$('#code').slideDown();$("#video").hide();$("#intro").slideUp();$('#footer').slideUp();}
-  else{$('#intro').slideDown();$('#code').slideUp();$('#video').slideUp();$('#footer').slideDown();};
+  updateVideo();}
+  else if(this.value == "code"){$('#code').slideDown();$("#video").hide();$("#intro").slideUp();$('#footer').slideUp(); updateWeb();}
+  else{$('#intro').slideDown();$('#code').slideUp();$('#video').slideUp();$('#footer').slideDown();updateReset();};
 });
 
-$('#title').click(function(){$('#intro').slideDown();$('#code').slideUp();$('#video').slideUp();$('#menu').prop('selectedIndex',0);$('#footer').slideDown(); });
+
+function updateVideo() { 
+  if (history.pushState) { 
+  var newurl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?video'; 
+  window.history.pushState({path:newurl},'',newurl); 
+  } 
+  }
+  function updateWeb() { 
+    if (history.pushState) { 
+    var newurl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?web'; 
+    window.history.pushState({path:newurl},'',newurl); 
+    } 
+    }
+    function updateReset() { 
+      if (history.pushState) { 
+      var newurl = window.location.protocol + "//" + window.location.host + window.location.pathname + ''; 
+      window.history.pushState({path:newurl},'',newurl); 
+      } 
+      }
+    
+  
+  if(window.location.search == '?video'){
+    $('#video').slideDown();$("#code").hide();$("#intro").slideUp();$('#footer').slideUp();
+  }
+  if(window.location.search == '?web'){
+    $('#code').slideDown();$("#video").hide();$("#intro").slideUp();$('#footer').slideUp();
+  }
+
+
+$('#title').click(function(){updateReset();$('#intro').slideDown();$('#code').slideUp();$('#video').slideUp();$('#menu').prop('selectedIndex',0);$('#footer').slideDown(); });
 
 $("#titel").keyup(function (e) {
   if (e.which == 13) {
